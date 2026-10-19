@@ -1,0 +1,10 @@
+# 拉取镜像部署（推荐；1Panel 编排可直接粘贴本文件内容）
+services:
+  price-radar:
+    image: kunkun66/chatgpt-business-price-radar:latest   # Docker Hub
+    # 备用镜像源（GitHub GHCR，Package 设为 Public 后可用）：
+    # image: ghcr.io/jackxunkun163/chatgpt-business-price-radar:latest
+    container_name: price-radar
+    restart: unless-stopped
+    ports:
+      - "8080:80"   # 左侧为宿主机端口，可按需修改

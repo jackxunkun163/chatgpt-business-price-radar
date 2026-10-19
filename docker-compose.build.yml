@@ -1,0 +1,13 @@
+# 从源码构建部署（离线修改代码时使用；常规部署直接用 docker-compose.yml 拉取镜像即可）
+services:
+  price-radar:
+    build:
+      context: .
+      # 本地无法访问 chatgpt.com 时可取消注释跳过采集（使用内置演示数据）：
+      # args:
+      #   COLLECT_PRICES: "false"
+    image: price-radar:local
+    container_name: price-radar
+    restart: unless-stopped
+    ports:
+      - "8080:80"
